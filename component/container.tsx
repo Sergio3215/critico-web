@@ -40,11 +40,18 @@ export default function ContainerApp({ route, router }: any) {
     }
 
     const handlerLoad = async () => {
-        const ftch = await fetch(`${location.origin}/api/evaluate-web?url=${inputText}`);
-        const res = await ftch.json();
-        let txt: any = marked.parse(res.message);
-        setOutputText(txt);
-        setIsDisabled(false);
+        let txt: any = "";
+        try {
+            const ftch = await fetch(`${location.origin}/api/evaluate-web?url=${inputText}`);
+            const res = await ftch.json();
+            txt = marked.parse(res.message);
+            setOutputText(txt);
+            setIsDisabled(false);
+        } catch (error) {
+            txt = "No has agregado una URL valido!";
+            setOutputText(txt);
+            setIsDisabled(false);
+        }
     }
 
     const handlerClick = async () => {
