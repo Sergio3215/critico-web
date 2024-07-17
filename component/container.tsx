@@ -61,12 +61,11 @@ export default function ContainerApp({ route, router }: any) {
 
     return (
         <main className="flex min-h-screen flex-col items-center p-16" >
-            <div id="main--container">
+            <div id={route != undefined? "main--container--small":"main--container"}>
                 <div>
                     <h1 id="label--principal">Criticador de Sitios Web</h1>
                 </div>
-                <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick}
-                    setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
+                <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
             <ContainerOutputText outputText={outputText} isDisabled={isDisabled} />
         </main>
