@@ -1,7 +1,7 @@
 "use client"
 import type { Metadata } from "next";
 import circuit from "../../component/circuitSVG.svg"
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 const monserrat = Montserrat({ subsets: ["vietnamese"] })
 
 export default function RootLayout({
