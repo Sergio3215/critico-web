@@ -1,11 +1,26 @@
 "use client"
 
-export default function ContainerOutputText({ outputText }: any) {
+export default function ContainerOutputText({ outputText, isDisabled }: any) {
     return (
-        <div id="display--output" style={{
-            display: (outputText == "")?"none":""
-        }}>
-            <div dangerouslySetInnerHTML={{ __html: outputText }}></div>
-        </div>
+        <>
+            {
+                isDisabled ?
+                    <>
+                    <div id="cargando--display">
+                    <div>
+                        <h1 id="label--principal">Cargando...</h1>
+                    </div>
+                </div>
+                    </>
+                    :
+                    <>
+                        <div id="display--output" style={{
+                            display: (outputText == "") ? "none" : ""
+                        }}>
+                            <div dangerouslySetInnerHTML={{ __html: outputText }}></div>
+                        </div>
+                    </>
+            }
+        </>
     );
 }

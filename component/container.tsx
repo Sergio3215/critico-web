@@ -12,7 +12,7 @@ export default function ContainerApp({ route, router }: any) {
     const [firstTime, setFirstTime] = useState(false);
 
     useEffect(() => {
-        console.log(route);
+        // console.log(route);
         let isUndefined_ = route == undefined
         if (!isUndefined_) {
             setInputText(route);
@@ -61,7 +61,7 @@ export default function ContainerApp({ route, router }: any) {
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick}
                     setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
-            <ContainerOutputText outputText={outputText} />
+            <ContainerOutputText outputText={outputText} isDisabled={isDisabled} />
         </main>
     );
 }

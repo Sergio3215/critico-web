@@ -1,9 +1,14 @@
-#main--container{
+#main--container, #cargando--display{
     background-color: #1c2541f8;
     padding: 60px;
     position: relative;
     top:100px;
     border-radius: 12px;
+}
+
+
+#cargando--display{
+    margin-top: 100px;
 }
 
 #display--output{
