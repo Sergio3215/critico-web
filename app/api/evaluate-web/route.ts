@@ -1,7 +1,7 @@
 import { generateText } from "ai"
 import { google } from "@ai-sdk/google"
 
-// require('dotenv').config();
+require('dotenv').config();
 
 /**
  * In the enviroment variable file, you must to add the variable GOOGLE_GENERATIVE_AI_API_KEY and value of api key
