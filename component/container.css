@@ -14,6 +14,7 @@
     height: 58vh;
     margin: 0px 60px;
     margin-top: 110px;
+    font-size: 28px;
 }
 
 #label--principal{
@@ -35,4 +36,5 @@ input[type="url"]{
     font-size: 30px;
     border-radius: 10px;
     width: 40vw;
+    color:black;
 }

@@ -19,7 +19,7 @@ export async function GET(req: Request) {
 
   if (url !== null && url != "") {
     const { text } = await generateText({
-      model: google("models/gemini-1.5-pro-latest"),
+      model: google("models/gemini-1.5-flash-latest"),
       prompt: `Ahora vos sos un critico web, por ende vas a tener que evaluar SEO, Performance, Best Practice, Accesibility y PWA y vas a dar consejos de como mejorar la website y el diseño. La web es ${url}`
     })
     return Response.json({ question: url, message: text });

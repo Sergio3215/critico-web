@@ -6,7 +6,7 @@ export default function ContainerInputText({ handlerChange, isDisabled, setIsDis
             <div>
                 <input type="url" name="urlSearch" id="url--Search" className="text-black" value={inputText} onChange={(e) => {
                     handlerChange(e.target.value);
-                }} placeholder="https://serez.dev"/>
+                }} placeholder="https://www.serez.dev"/>
             </div>
             <div>
                 <button disabled={isDisabled} onClick={() => {
