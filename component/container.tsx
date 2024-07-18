@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from "react";
-import { marked } from "marked";
 import ContainerInputText from "./inputText";
 import ContainerOutputText from "./outputText";
 import "./container.css"
@@ -9,7 +8,6 @@ export default function ContainerApp({ route, router }: any) {
     const [inputText, setInputText] = useState("");
     const [outputText, setOutputText] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
-    const [firstTime, setFirstTime] = useState(false);
 
     useEffect(() => {
         // console.log(route);
@@ -24,34 +22,8 @@ export default function ContainerApp({ route, router }: any) {
 
     }, [inputText, outputText, isDisabled])
 
-
-
-    useEffect(() => {
-        if (inputText != "" && route != undefined && !firstTime) {
-            setIsDisabled(true);
-            handlerLoad();
-            setFirstTime(true);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [inputText])
-
     const handlerChange = (value: string) => {
         setInputText(value);
-    }
-
-    const handlerLoad = async () => {
-        let txt: any = "";
-        try {
-            const ftch = await fetch(`${location.origin}/api/evaluate-web?url=${inputText}`);
-            const res = await ftch.json();
-            txt = marked.parse(res.message);
-            setOutputText(txt);
-            setIsDisabled(false);
-        } catch (error) {
-            txt = "No has agregado una URL valido!";
-            setOutputText(txt);
-            setIsDisabled(false);
-        }
     }
 
     const handlerClick = async () => {
@@ -67,7 +39,8 @@ export default function ContainerApp({ route, router }: any) {
                 </div>
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
-            <ContainerOutputText outputText={outputText} isDisabled={isDisabled} />
+            <ContainerOutputText outputText={outputText} isDisabled={isDisabled} 
+            setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route}/>
         </main>
     );
 }
