@@ -46,7 +46,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                                 Aprender lo que no pensabas o sabías, es descubrir algo nuevo.
                             </h3>
                             <h4>
-                                Proba tu web, es proba tu criticador web.
+                                Proba tu web, es proba tu <b>Criticador Web</b>.
                             </h4>
                         </div>
                     </div>
