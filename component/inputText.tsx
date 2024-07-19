@@ -10,7 +10,6 @@ export default function ContainerInputText({ handlerChange, isDisabled, setIsDis
             </div>
             <div>
                 <button disabled={isDisabled} onClick={() => {
-                    setIsDisabled(true);
                     handlerClick();
                 }}>Enviar</button>
             </div>

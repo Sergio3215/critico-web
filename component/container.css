@@ -17,7 +17,7 @@
 }
 
 #display--promotional {
-    /* margin-top: 150px; */
+    margin-top: 40px;
     color: #ECF8F8;
     text-align: center;
     padding: 80px 80px;
@@ -98,11 +98,33 @@ button {
     min-width: 320px;
 }
 
+@media(max-height:1550px) {
+    #display--output {
+        padding: 20px;
+        height: 67vh;
+        font-size: 18px;
+    }
+
+    #display--promotional {
+        margin: 20px 20px;
+        color: #ECF8F8;
+        text-align: center;
+        padding: 10px 20px;
+    }
+}
+
 @media(max-height:850px) {
     #display--output {
         padding: 20px;
         height: 67vh;
-        font-size: 28px;
+        font-size: 18px;
+    }
+
+    #display--promotional {
+        margin-top: 40px;
+        color: #ECF8F8;
+        text-align: center;
+        padding: 25px 80px;
     }
 }
 
@@ -111,6 +133,33 @@ button {
         padding: 20px;
         height: 58vh;
         font-size: 28px;
+    }
+
+    #display--promotional {
+        margin: 20px 40px;
+        color: #ECF8F8;
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    #label--principal--promotional {
+        font-size: 32px;
+        font-weight: 500;
+    }
+
+    #display--promotional h2 {
+        font-size: 32px;
+        font-weight: 500;
+    }
+
+    #display--promotional h3 {
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    #display--promotional h4 {
+        font-size: 22px;
+        font-weight: 200;
     }
 }
 
@@ -124,7 +173,9 @@ button {
     }
 
     #label--principal {
-        font-size: 40px;
+        font-size: 25px;
+        text-align: center;
+        margin-left: 82px;
     }
 
     #main--container {
@@ -132,18 +183,19 @@ button {
         margin-top: 50px;
     }
 
-    #display--promotional{
-        margin-top: 150px;
+    #display--promotional {
+        margin: 150px 15px;
+        padding: 2px 10px;
         /* height: 50vh; */
     }
-    
+
     #label--principal--promotional {
-        font-size: 42px;
+        font-size: 22px;
         font-weight: 500;
     }
 
     #display--promotional h2 {
-        font-size: 42px;
+        font-size: 32px;
         font-weight: 500;
     }
 
@@ -155,5 +207,12 @@ button {
     #display--promotional h4 {
         font-size: 32px;
         font-weight: 200;
+    }
+
+    #url--Search {
+        font-size: 28px;
+        border-radius: 10px;
+        width: 40vw;
+        min-width: 220px;
     }
 }
