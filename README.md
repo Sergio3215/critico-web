@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🚀 Comenzando con el proyecto
+#### Al iniciar el proyecto deberias iniciar con:
+```bash
+npm install
+# or
+pnpm install
+```
 
-## Getting Started
-
-First, run the development server:
-
+#### Al terminar de instalar las dependencias, puedes iniciar el proyecto con:
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📈Obtener la API KEY de Google
+#### Vale comentar que google tiene sus creditos gratis con una cuenta nueva en Google Cloud Platform.
+#### La página donde se puede obtener el API KEY es <a href="https://aistudio.google.com/app/apikey">Aquí</a>.
+#### También dejo documentación de la misma <a href="https://aistudio.google.com/app/apikey">Documentación</a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙1️⃣ Configurando el Modelo Gemini de Google por variable de entorno
+#### Se deberá crear un archivo llamado **_.env_** en la raiz del proyecto, donde alli tienes que poner la variable de entorno **_GOOGLE_GENERATIVE_API_KEY_** con el valor del **_API KEY_**.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## ⚙2️⃣ Configurando el Modelo Gemini de Google por archivo de API
+#### También puedes en el mismo archivo del "Api de la pagina" modificarlo.
+#### Solo deberias ir a ./app/api/evaluate-web/route.ts y modificar la siguiente linea:
+```ts
 
-## Learn More
+if (process.env.GOOGLE_GENERATIVE_API_KEY == undefined) {
+  process.env.GOOGLE_GENERATIVE_API_KEY = "AIz...XY9Q"
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### _Nota: En esa ruta tambien te da acceso al modelo de google, alli puedes probar los modelos que google ofrece_
