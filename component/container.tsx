@@ -35,7 +35,7 @@ export default function ContainerApp({ route, router }: any) {
     return (
         <main className="flex min-h-screen flex-col items-center p-16" >
             <div id={route != undefined? "main--container--small":"main--container"}>
-                <div id="title--container">
+                <div className="flex">
                     <h1 id="label--principal">Criticador Web</h1>
                     <img src={lupa.src} alt="Lupa de critico web" />
                 </div>
