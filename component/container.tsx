@@ -15,7 +15,7 @@ export default function ContainerApp({ route, router }: any) {
         // console.log(route);
         let isUndefined_ = route == undefined
         if (!isUndefined_) {
-            setInputText("https://"+route);
+            setInputText("https://" + route);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route])
@@ -35,15 +35,20 @@ export default function ContainerApp({ route, router }: any) {
 
     return (
         <main className="flex min-h-screen flex-col items-center p-16" >
-            <div id={route != undefined? "main--container--small":"main--container"}>
+            <div id={route != undefined ? "main--container--small" : "main--container"}>
                 <div className="flex">
                     <h1 id="label--principal">Criticador Web</h1>
-                    <Image src={lupa.src} alt="Lupa de critico web" />
+                    <Image
+                        src={lupa.src}
+                        alt="Lupa de critico web"
+                        width={68}
+                        height={40}
+                    />
                 </div>
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
-            <ContainerOutputText outputText={outputText} isDisabled={isDisabled} 
-            setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route}/>
+            <ContainerOutputText outputText={outputText} isDisabled={isDisabled}
+                setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route} />
         </main>
     );
 }
