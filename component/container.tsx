@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ContainerInputText from "./inputText";
 import ContainerOutputText from "./outputText";
 import "./container.css"
+import lupa from "../public/lupa.png"
 
 export default function ContainerApp({ route, router }: any) {
     const [inputText, setInputText] = useState("");
@@ -34,8 +35,9 @@ export default function ContainerApp({ route, router }: any) {
     return (
         <main className="flex min-h-screen flex-col items-center p-16" >
             <div id={route != undefined? "main--container--small":"main--container"}>
-                <div>
+                <div id="title--container">
                     <h1 id="label--principal">Criticador Web</h1>
+                    <img src={lupa.src} alt="Lupa de critico web" />
                 </div>
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>

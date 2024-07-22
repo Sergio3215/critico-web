@@ -8,6 +8,7 @@ const monserrat = Montserrat({ subsets: ["vietnamese"] })
 export const metadata: Metadata = {
   title: "Criticador de Paginas",
   description: "Un criticador web, la cual hace que te muestre tus puntos positivos y negativos, y si aplica, como solución del mismo",
+  icons:[circuit.src]
 };
 
 

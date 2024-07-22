@@ -224,6 +224,9 @@ button {
         margin-left: 82px;
     }
 
+    #title--container{
+        display: flex;
+    }
 
     #display--promotional {
         margin: 5px 15px;
