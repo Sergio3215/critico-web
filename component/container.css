@@ -81,6 +81,37 @@
     font-size: 28px;
 }
 
+#display--output a {
+    color: #ffffdd;
+    font-weight: 700;
+    font-style: italic;
+    border-bottom: 2px solid #ffffdd;
+    margin: 5px;
+}
+
+#display--output a:hover {
+    color: #f8f8f4;
+    border-bottom-color: #f8f8f4;
+}
+
+#display--output a:link {
+    color: #afafa0;
+    border-bottom-color: #afafa0;
+}
+
+#display--output li {
+    display: flex;
+    flex-direction: column;
+}
+
+#display--output ul {
+    padding: 2px 20px;
+}
+
+#display--output p strong {
+    border-bottom: 2.5px solid rgb(var(--foreground-rgb));
+}
+
 button {
     border: 4px solid #626D58;
     border-radius: 10px;
@@ -214,13 +245,14 @@ button {
 
 @media(max-width:450px) {
 
-    #main--container, #cargando--display {
+    #main--container,
+    #cargando--display {
         padding: 20px 20px;
         margin: 20px;
         flex-direction: column;
         font-size: 18px;
     }
-    
+
     #main--container div:last-child {
         flex-direction: column;
         font-size: 18px;
@@ -265,8 +297,9 @@ button {
         width: 40vw;
         min-width: 220px;
     }
-    button{
+
+    button {
         font-size: 18px;
-        padding:5px 12px;
+        padding: 5px 12px;
     }
 }

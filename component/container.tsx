@@ -13,7 +13,7 @@ export default function ContainerApp({ route, router }: any) {
         // console.log(route);
         let isUndefined_ = route == undefined
         if (!isUndefined_) {
-            setInputText(route);
+            setInputText("https://"+route);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route])

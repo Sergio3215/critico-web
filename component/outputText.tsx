@@ -15,7 +15,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
             setIsDisabled(true);
             let txt: any = "";
             try {
-                const ftch = await fetch(`${location.origin}/api/evaluate-web?url=${location.pathname.replace("/", "")}`);
+                const ftch = await fetch(`${location.origin}/api/evaluate-web?url=https://${location.pathname.replace("/", "")}`);
                 const res = await ftch.json();
                 txt = marked.parse(res.message);
                 setOutputText(txt);
