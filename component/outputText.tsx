@@ -65,7 +65,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                         <div id="display--output" style={{
                             display: (outputText == "") ? "none" : ""
                         }}>
-                            <div dangerouslySetInnerHTML={{ __html: outputText }}></div>
+                            <div dangerouslySetInnerHTML={{ __html: outputText.replaceAll(":", "") }}></div>
                         </div>
                     </>
             }
