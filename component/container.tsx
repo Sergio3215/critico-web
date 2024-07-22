@@ -4,6 +4,7 @@ import ContainerInputText from "./inputText";
 import ContainerOutputText from "./outputText";
 import "./container.css"
 import lupa from "../public/lupa.png"
+import Image from "next/image";
 
 export default function ContainerApp({ route, router }: any) {
     const [inputText, setInputText] = useState("");
@@ -37,7 +38,7 @@ export default function ContainerApp({ route, router }: any) {
             <div id={route != undefined? "main--container--small":"main--container"}>
                 <div className="flex">
                     <h1 id="label--principal">Criticador Web</h1>
-                    <img src={lupa.src} alt="Lupa de critico web" />
+                    <Image src={lupa.src} alt="Lupa de critico web" />
                 </div>
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
