@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     noarchive: true,
     nositelinkssearchbox: false,
     nosnippet: true,
-    indexifembedded: false,
+    indexifembedded: true,
     "max-image-preview": "standard",
     googleBot: "https://www.google.com",
   },
