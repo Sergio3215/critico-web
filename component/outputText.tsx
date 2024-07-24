@@ -43,6 +43,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                 for await (let part of stream) {
                     str += part;
                     setOutputText(marked.parse(str));
+                    addUrlParam();
                 }
                 setIsDisabled(false);
                 addUrlParam();
@@ -53,7 +54,6 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                 setIsDisabled(false);
             }
             addUrlParam();
-
         }
     }
 
