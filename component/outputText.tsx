@@ -6,22 +6,16 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
 
     useEffect(() => {
         handlerLoad();
-        if (document.querySelector("#display--output div p a") != null) {
-            document.querySelectorAll("#display--output div p a").forEach(link => {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            })
-        }
-        if (document.querySelector("#display--output div h2 a") != null) {
-            document.querySelectorAll("#display--output div h2 a").forEach(link => {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            })
-        }
+        addUrlParam();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
+        addUrlParam();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [outputText]);
+
+    const addUrlParam = ()=>{
         if (document.querySelector("#display--output div p a") != null) {
             document.querySelectorAll("#display--output div p a").forEach(link => {
                 link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
@@ -34,8 +28,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                 link.textContent = "https://" + location.pathname.replace("/", "");
             })
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [outputText])
+    }
 
     const handlerLoad = async () => {
         if (route !== undefined) {
@@ -52,12 +45,14 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                     setOutputText(marked.parse(str));
                 }
                 setIsDisabled(false);
+                addUrlParam();
             } catch (error) {
                 console.log(error);
                 txt = "No has agregado una URL valido!";
                 setOutputText(txt);
                 setIsDisabled(false);
             }
+            addUrlParam();
 
         }
     }

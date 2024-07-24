@@ -51,21 +51,14 @@ function ContainerOutputText(_a) {
     var outputText = _a.outputText, isDisabled = _a.isDisabled, setIsDisabled = _a.setIsDisabled, setOutputText = _a.setOutputText, route = _a.route, handlerAiStream = _a.handlerAiStream;
     react_1.useEffect(function () {
         handlerLoad();
-        if (document.querySelector("#display--output div p a") != null) {
-            document.querySelectorAll("#display--output div p a").forEach(function (link) {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            });
-        }
-        if (document.querySelector("#display--output div h2 a") != null) {
-            document.querySelectorAll("#display--output div h2 a").forEach(function (link) {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            });
-        }
+        addUrlParam();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     react_1.useEffect(function () {
+        addUrlParam();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [outputText]);
+    var addUrlParam = function () {
         if (document.querySelector("#display--output div p a") != null) {
             document.querySelectorAll("#display--output div p a").forEach(function (link) {
                 link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
@@ -78,15 +71,14 @@ function ContainerOutputText(_a) {
                 link.textContent = "https://" + location.pathname.replace("/", "");
             });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [outputText]);
+    };
     var handlerLoad = function () { return __awaiter(_this, void 0, void 0, function () {
         var txt, str, stream, stream_1, stream_1_1, part, e_1_1, error_1;
         var e_1, _a;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    if (!(route !== undefined)) return [3 /*break*/, 16];
+                    if (!(route !== undefined)) return [3 /*break*/, 17];
                     setIsDisabled(true);
                     txt = "";
                     _b.label = 1;
@@ -128,6 +120,7 @@ function ContainerOutputText(_a) {
                 case 13: return [7 /*endfinally*/];
                 case 14:
                     setIsDisabled(false);
+                    addUrlParam();
                     return [3 /*break*/, 16];
                 case 15:
                     error_1 = _b.sent();
@@ -136,7 +129,10 @@ function ContainerOutputText(_a) {
                     setOutputText(txt);
                     setIsDisabled(false);
                     return [3 /*break*/, 16];
-                case 16: return [2 /*return*/];
+                case 16:
+                    addUrlParam();
+                    _b.label = 17;
+                case 17: return [2 /*return*/];
             }
         });
     }); };
