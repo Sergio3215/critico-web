@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
 }
-#main--container div{
+#main--container div, #main--container--small div{
     display: flex;
 }
 
