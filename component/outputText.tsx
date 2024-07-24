@@ -6,6 +6,18 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
 
     useEffect(() => {
         handlerLoad();
+        if (document.querySelector("#display--output div p a") != null) {
+            document.querySelectorAll("#display--output div p a").forEach(link => {
+                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
+                link.textContent = "https://" + location.pathname.replace("/", "");
+            })
+        }
+        if (document.querySelector("#display--output div h2 a") != null) {
+            document.querySelectorAll("#display--output div h2 a").forEach(link => {
+                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
+                link.textContent = "https://" + location.pathname.replace("/", "");
+            })
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
