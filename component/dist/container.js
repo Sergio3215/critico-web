@@ -73,8 +73,8 @@ function ContainerApp(_a) {
     return (React.createElement("main", { className: "flex min-h-screen flex-col items-center p-16" },
         React.createElement("div", { id: route != undefined ? "main--container--small" : "main--container" },
             React.createElement("div", { className: "flex" },
-                React.createElement("h1", { id: "label--principal" }, "Criticador Web"),
-                React.createElement(image_1["default"], { src: lupa_png_1["default"].src, alt: "Lupa de critico web", width: 68, height: 40 })),
+                React.createElement(image_1["default"], { src: lupa_png_1["default"].src, alt: "Lupa de critico web", width: 60, height: 70 }),
+                React.createElement("h1", { id: "label--principal" }, "Criticador Web")),
             React.createElement(inputText_1["default"], { inputText: inputText, handlerChange: handlerChange, handlerClick: handlerClick, setIsDisabled: setIsDisabled, isDisabled: isDisabled })),
         React.createElement(outputText_1["default"], { outputText: outputText, isDisabled: isDisabled, setIsDisabled: setIsDisabled, setOutputText: setOutputText, route: route, handlerAiStream: handlerAiStream })));
 }
