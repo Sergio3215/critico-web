@@ -6,29 +6,12 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
 
     useEffect(() => {
         handlerLoad();
-        addUrlParam();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-        addUrlParam();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [outputText]);
-
-    const addUrlParam = ()=>{
-        if (document.querySelector("#display--output div p a") != null) {
-            document.querySelectorAll("#display--output div p a").forEach(link => {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            })
-        }
-        if (document.querySelector("#display--output div h2 a") != null) {
-            document.querySelectorAll("#display--output div h2 a").forEach(link => {
-                link.setAttribute("href", "https://" + location.pathname.replace("/", ""));
-                link.textContent = "https://" + location.pathname.replace("/", "");
-            })
-        }
-    }
 
     const handlerLoad = async () => {
         if (route !== undefined) {
@@ -43,17 +26,14 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                 for await (let part of stream) {
                     str += part;
                     setOutputText(marked.parse(str));
-                    addUrlParam();
                 }
                 setIsDisabled(false);
-                addUrlParam();
             } catch (error) {
                 console.log(error);
                 txt = "No has agregado una URL valido!";
                 setOutputText(txt);
                 setIsDisabled(false);
             }
-            addUrlParam();
         }
     }
 
@@ -93,7 +73,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                             <div id="display--output" style={{
                                 display: (outputText == "") ? "none" : ""
                             }}>
-                                <div dangerouslySetInnerHTML={{ __html: outputText.replaceAll(":", "") }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: outputText.replaceAll(":", "").replaceAll("https//","https://") }}></div>
                             </div>
                         </>
             }
