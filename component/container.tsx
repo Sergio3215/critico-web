@@ -5,11 +5,13 @@ import ContainerOutputText from "./outputText";
 import "./container.css"
 import lupa from "../public/lupa.png"
 import Image from "next/image";
+import { useAi } from "@/context/aiContext";
 
 export default function ContainerApp({ route, router }: any) {
     const [inputText, setInputText] = useState("");
     const [outputText, setOutputText] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
+    const { handlerAiStream }: any = useAi();
 
     useEffect(() => {
         // console.log(route);
@@ -48,7 +50,8 @@ export default function ContainerApp({ route, router }: any) {
                 <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
             </div>
             <ContainerOutputText outputText={outputText} isDisabled={isDisabled}
-                setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route} />
+                setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route} 
+                handlerAiStream={handlerAiStream}/>
         </main>
     );
 }
