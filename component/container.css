@@ -9,6 +9,10 @@
     flex-direction: column;
     align-items: center;
 }
+#main--container div{
+    display: flex;
+    flex-direction: column;
+}
 
 #label--principal {
     font-size: 40px;
