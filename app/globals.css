@@ -24,9 +24,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    color: white;
-    background-color: rgb(241 229 160);
-    background-image: url('../component/circuitSVG.svg');
+  color: white;
+  background-color: rgb(241 229 160);
+  background-image: url('../component/circuitSVG.svg');
 }
 
 @layer utilities {
@@ -35,8 +35,13 @@ body {
   }
 }
 
-img{
+img {
   width: 60px;
   height: 60px;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
