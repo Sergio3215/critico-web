@@ -5,13 +5,12 @@ import ContainerOutputText from "./outputText";
 import "./container.css"
 import lupa from "../public/lupa.png"
 import Image from "next/image";
-import { useAi } from "@/context/aiContext";
+import AiProvider from "@/context/aiProvider";
 
 export default function ContainerApp({ route, router }: any) {
     const [inputText, setInputText] = useState("");
     const [outputText, setOutputText] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
-    const { handlerAiStream }: any = useAi();
 
     useEffect(() => {
         // console.log(route);
@@ -34,24 +33,24 @@ export default function ContainerApp({ route, router }: any) {
         router.push(`${location.origin}/${inputText.replace("https://", "").replace("http://", "")}`);
     }
 
-
     return (
-        <main className="flex min-h-screen flex-col items-center p-16" >
-            <div id={route != undefined ? "main--container--small" : "main--container"}>
-                <div className="flex">
-                    <Image
-                        src={lupa.src}
-                        alt="Lupa de critico web"
-                        width={60}
-                        height={70}
-                    />
-                    <h1 id="label--principal">Criticador Web</h1>
+        <AiProvider>
+            <main className="flex min-h-screen flex-col items-center p-16" >
+                <div id={route != undefined ? "main--container--small" : "main--container"}>
+                    <div className="flex">
+                        <Image
+                            src={lupa.src}
+                            alt="Lupa de critico web"
+                            width={60}
+                            height={70}
+                        />
+                        <h1 id="label--principal">Criticador Web</h1>
+                    </div>
+                    <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
                 </div>
-                <ContainerInputText inputText={inputText} handlerChange={handlerChange} handlerClick={handlerClick} setIsDisabled={setIsDisabled} isDisabled={isDisabled} />
-            </div>
-            <ContainerOutputText outputText={outputText} isDisabled={isDisabled}
-                setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route} 
-                handlerAiStream={handlerAiStream}/>
-        </main>
+                <ContainerOutputText outputText={outputText} isDisabled={isDisabled}
+                    setIsDisabled={setIsDisabled} setOutputText={setOutputText} route={route} />
+            </main>
+        </AiProvider>
     );
 }

@@ -1,8 +1,11 @@
 "use client"
+import { useAi } from "@/context/aiContext";
 import { marked } from "marked";
 import { useEffect, useState } from "react";
 
-export default function ContainerOutputText({ outputText, isDisabled, setIsDisabled, setOutputText, route, handlerAiStream }: any) {
+export default function ContainerOutputText({ outputText, isDisabled, setIsDisabled, setOutputText, route }: any) {
+
+    const { handlerAiStream }: any = useAi();
 
     useEffect(() => {
         handlerLoad();
@@ -30,7 +33,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                 setIsDisabled(false);
             } catch (error) {
                 console.log(error);
-                txt = "No has agregado una URL valido!";
+                txt = "No has agregado una URL valida!";
                 setOutputText(txt);
                 setIsDisabled(false);
             }
@@ -42,22 +45,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
             {
                 route == undefined ?
                     <>
-                        <div id="display--promotional">
-                            <div>
-                                <h1 id="label--principal--promotional">
-                                    ¡Un desafío personal!
-                                </h1>
-                                <h2>
-                                    Probarte a ti mismo, es ver tus capacidades ocultas.
-                                </h2>
-                                <h3>
-                                    Aprender lo que no pensabas o sabías, es descubrir algo nuevo.
-                                </h3>
-                                <h4>
-                                    Proba tu web, es proba tu <b>Criticador Web</b>.
-                                </h4>
-                            </div>
-                        </div>
+
                     </>
                     :
                     isDisabled ?
@@ -73,7 +61,7 @@ export default function ContainerOutputText({ outputText, isDisabled, setIsDisab
                             <div id="display--output" style={{
                                 display: (outputText == "") ? "none" : ""
                             }}>
-                                <div dangerouslySetInnerHTML={{ __html: outputText.replaceAll(":", "").replaceAll("https//","https://") }}></div>
+                                <div dangerouslySetInnerHTML={{ __html: outputText.replaceAll(":", "").replaceAll("https//", "https://") }}></div>
                             </div>
                         </>
             }

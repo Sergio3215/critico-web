@@ -70,12 +70,6 @@ export const metadata: Metadata = {
     description: "Criticador Web, lugar donde puedes probar tu sitio web, lugar donde te dice que mejorar!",
     title: "Criticador Web",
   },
-  twitter:{
-    card:"summary_large_image",
-    description:"Criticador Web, lugar donde puedes probar tu sitio web, lugar donde te dice que mejorar!",
-    creator:"@Serez Dev",
-    images:lupa.src
-  },
   referrer:"strict-origin"
 };
 
@@ -87,10 +81,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{
-        background: "rgb(241 229 160)",
-        backgroundImage: `url(${circuit.src})`
-      }} className={monserrat.className}>{children}</body>
+      <body className={monserrat.className}>{children}</body>
     </html>
   );
 }
