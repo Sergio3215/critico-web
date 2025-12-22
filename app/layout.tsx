@@ -1,78 +1,64 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import circuit from "../component/circuitSVG.svg"
-import lupa from "../public/lupa.png"
 
-const monserrat = Montserrat({ subsets: ["vietnamese"] });
+const monserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 const myURL = "https://criticador-web.vercel.app/";
 
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Criticador de Paginas",
-  description: "Un criticador web, la cual hace que te muestre tus puntos positivos y negativos, y si aplica, como solución del mismo",
-  icons: [lupa.src],
-  keywords: ["criticador web", "analytics web sites",
-    "analizar paginas web", "revisa pagina web", "SEO",
-    "Accesibility", "PWA", "mejores practicas", "best practice",
-    "Accesibilidaes", "performance", "analisis de web", "PageSpeed Insights"],
+  metadataBase: new URL(myURL),
+  title: {
+    default: "Criticador Web | Análisis & SEO AI",
+    template: "%s | Criticador Web",
+  },
+  description: "Analiza tu sitio web gratis con IA. Obtén consejos sobre SEO, Accesibilidad, Performance y Diseño. Mejora tu ranking hoy.",
+  keywords: ["analisis web", "seo checker", "auditoria web", "inteligencia artificial", "web design feedback", "page speed optimization", "nextjs", "react"],
+  authors: [{ name: "Serez Dev", url: "https://www.serez.dev" }],
+  creator: "Serez Dev",
+  publisher: "Serez Dev",
   robots: {
     index: true,
     follow: true,
-    noimageindex: true,
-    nocache: true,
-    notranslate: true,
-    noarchive: true,
-    nositelinkssearchbox: false,
-    nosnippet: true,
-    indexifembedded: true,
-    "max-image-preview": "standard",
-    googleBot: "https://www.google.com",
-  },
-  abstract: "Criticador Web, lugar donde puedes probar tu sitio web, lugar donde te dice que mejorar!",
-  alternates: {
-    canonical: myURL
-  },
-  appleWebApp: {
-    capable: true,
-    startupImage: lupa.src,
-    title: "Criticador Web",
-    statusBarStyle: "black-translucent"
-  },
-  applicationName: "Criticador Web",
-  appLinks: {
-    ios: {
-      app_name: "Criticador Web",
-      url: myURL
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    android: {
-      app_name: "Criticador Web",
-      url: myURL,
-      package: "app"
-    },
-    web: {
-      url: myURL
-    }
-  },
-  authors: {
-    name: "Serez Dev",
-    url: "https://www.serez.dev"
-  },
-  publisher: "Vercel",
-  category: "Analyzer Web",
-  formatDetection: {
-    url: true
   },
   openGraph: {
     type: "website",
     url: myURL,
+    title: "Criticador Web | Análisis & SEO AI",
+    description: "Analiza tu sitio web gratis con IA. Mejora tu SEO, Accesibilidad y Diseño.",
     siteName: "Criticador Web",
-    description: "Criticador Web, lugar donde puedes probar tu sitio web, lugar donde te dice que mejorar!",
-    title: "Criticador Web",
+    locale: "es_ES",
+    images: [{
+      url: "./og-image.jpg", // Placeholder, ideally specific OG image
+      width: 1200,
+      height: 630,
+      alt: "Criticador Web Preview",
+    }],
   },
-  referrer:"strict-origin"
+  twitter: {
+    card: "summary_large_image",
+    title: "Criticador Web | Análisis & SEO AI",
+    description: "Analiza tu sitio web gratis con IA.",
+    creator: "@serez_dev",
+  },
+  icons: {
+    icon: "/favicon.ico?v=2",
+  },
 };
-
 
 export default function RootLayout({
   children,
@@ -80,8 +66,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={monserrat.className}>{children}</body>
+    <html lang="es">
+      <body className={`${monserrat.className} antialiased`} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }
