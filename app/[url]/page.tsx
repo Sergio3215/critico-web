@@ -9,7 +9,7 @@ export default function UrlContainer(props: { params: Promise<{ url: string }> }
   const params = use(props.params);
   const router = useRouter();
 
-  console.log(params);
+  // console.log(params);
 
   return (
     <AiProvider>
